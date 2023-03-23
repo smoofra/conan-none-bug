@@ -4,6 +4,7 @@ set -e
 
 conan export binutils
 conan export gcc
+conan export libmagic
 
 # these are ok
 conan graph info -pr:h ./Linux-x86_64 -pr:b ./Linux-x86_64 libmagic >/dev/null 2>&1

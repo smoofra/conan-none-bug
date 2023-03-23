@@ -17,7 +17,10 @@ class Libmagic(ConanFile):
     package_type = "static-library"
 
     def build_requirements(self):
-        self.tool_requires("gcc/11.3.0@bug")
+        if self.settings.os == "Macos":
+            pass # self.tool_requires("xcode/12.4@bug")
+        else:
+            self.tool_requires("gcc/11.3.0@bug")
         if cross_building(self):
-            self.tool_requires(f"libmagic/{self.version}")
+            self.tool_requires(f"libmagic/{self.version}@bug")
 
